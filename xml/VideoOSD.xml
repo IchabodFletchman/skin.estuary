@@ -22,7 +22,7 @@
 			<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(fullscreeninfo) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(OSDAudioDSPSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(playerprocessinfo) | Window.IsVisible(osdcmssettings) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]</visible>
 			<animation effect="fade" time="200">VisibleChange</animation>
 			<control type="label">
-				<right>30</right>
+				<right>140</right>
 				<top>0</top>
 				<align>right</align>
 				<textoffsetx>20</textoffsetx>
@@ -194,6 +194,8 @@
 				</control>
 			</control>
 			<control type="group" id="6000">
+				<left>150</left>
+				<right>150</right>
 				<top>60</top>
 				<visible>Player.SeekEnabled</visible>
 				<control type="button" id="87">
@@ -206,25 +208,25 @@
 					<onclick condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onclick>
 				</control>
 				<control type="slider">
-					<top>-5</top>
-					<left>0</left>
-					<width>100%</width>
-					<height>25</height>
-					<texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub_leftright.png</texturesliderbar>
-					<textureslidernib>osd/progress/nub_leftright.png</textureslidernib>
-					<textureslidernibfocus colordiffuse="button_focus">osd/progress/nub_leftright.png</textureslidernibfocus>
+					<left>-10</left>
+					<right>-10</right>
+					<top>-12</top>
+					<height>40</height>
+					<texturesliderbar colordiffuse="00FFFFFF">osd/progress/scrubber.png</texturesliderbar>
+					<textureslidernib>osd/progress/scrubber.png</textureslidernib>
+					<textureslidernibfocus>osd/progress/scrubber.png</textureslidernibfocus>
 					<info>Player.Progress</info>
 					<action>seek</action>
 					<visible>!Control.HasFocus(87)</visible>
 				</control>
 				<control type="slider">
-					<top>-5</top>
-					<left>0</left>
-					<width>100%</width>
-					<height>25</height>
-					<texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub_leftright.png</texturesliderbar>
-					<textureslidernib colordiffuse="button_focus">osd/progress/nub_leftright.png</textureslidernib>
-					<textureslidernibfocus colordiffuse="button_focus">osd/progress/nub_leftright.png</textureslidernibfocus>
+					<left>-10</left>
+					<right>-10</right>
+					<top>-12</top>
+					<height>40</height>
+					<texturesliderbar colordiffuse="00FFFFFF">osd/progress/scrubber.png</texturesliderbar>
+					<textureslidernib colordiffuse="button_focus">osd/progress/scrubber.png</textureslidernib>
+					<textureslidernibfocus colordiffuse="button_focus">osd/progress/scrubber.png</textureslidernibfocus>
 					<info>Player.Progress</info>
 					<action>seek</action>
 					<visible>Control.HasFocus(87)</visible>
