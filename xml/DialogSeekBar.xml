@@ -80,26 +80,12 @@
 				</control>
 			</control>
 			<control type="label">
-				<centerleft>50%</centerleft>
-				<top>110</top>
-				<width>50%</width>
-				<height>75</height>
-				<align>center</align>
-				<aligny>bottom</aligny>
-				<animation delay="0" effect="slide" time="120" start="0,0" end="0,-20" tween="sine" easing="inout" condition="!String.IsEmpty(Control.GetLabel(40000))">Conditional</animation>
-				<label>$VAR[SeekTimeLabelVar]</label>
-				<font>font45</font>
-				<shadowcolor>black</shadowcolor>
-				<visible>!Player.ChannelPreviewActive</visible>
-				<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
-			</control>
-			<control type="label">
-				<top>55</top>
-				<width>150</width>
+				<top>54</top>
+				<width>170</width>
 				<height>20</height>
 				<align>center</align>
 				<aligny>bottom</aligny>
-				<label>$INFO[Player.Time]</label>
+				<label>[B]$INFO[Player.Time][/B]</label>
 				<font>font13</font>
 				<shadowcolor>black</shadowcolor>
 				<visible>!Player.ChannelPreviewActive</visible>
@@ -107,16 +93,62 @@
 			</control>
 			<control type="label">
 				<right>0</right>
-				<top>55</top>
-				<width>150</width>
+				<top>54</top>
+				<width>170</width>
 				<height>20</height>
 				<align>center</align>
 				<aligny>bottom</aligny>
-				<label>$INFO[Player.TimeRemaining,– ,]</label>
+				<label>[B]$INFO[Player.TimeRemaining,– ,][/B]</label>
 				<font>font13</font>
 				<shadowcolor>black</shadowcolor>
 				<visible>!Player.ChannelPreviewActive</visible>
 				<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
+			</control>
+			<control type="label" id="56401">
+				<centerleft>50%</centerleft>
+				<top>90</top>
+				<width>50%</width>
+				<height>75</height>
+				<align>center</align>
+				<aligny>bottom</aligny>
+				<label>[COLOR button_focus]$LOCALIZE[209]: [/COLOR]$INFO[Container(54332).ListItem(1).Label]</label>
+				<font>font45</font>
+				<shadowcolor>black</shadowcolor>
+				<visible>!Player.ChannelPreviewActive + IntegerGreaterThan(Playlist.Position(video),1)</visible>
+				<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
+				<animation delay="0" effect="slide" time="120" start="0,0" end="0,20" tween="sine" easing="inout" condition="String.IsEmpty(Control.GetLabel(40000)) + String.IsEmpty(Control.GetLabel(56403))">Conditional</animation>
+			</control>
+			<control type="label" id="56402">
+				<centerleft>50%</centerleft>
+				<top>90</top>
+				<width>50%</width>
+				<height>75</height>
+				<align>center</align>
+				<aligny>bottom</aligny>
+				<label>$INFO[Player.Duration]</label>
+				<font>font45</font>
+				<shadowcolor>black</shadowcolor>
+				<visible>!Player.ChannelPreviewActive</visible>
+				<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
+				<animation delay="0" effect="slide" time="120" start="0,0" end="0,20" tween="sine" easing="inout" condition="String.IsEmpty(Control.GetLabel(40000)) + String.IsEmpty(Control.GetLabel(56403))">Conditional</animation>
+			</control>
+			<control type="label" id="56403">
+				<centerleft>50%</centerleft>
+				<top>136</top>
+				<width>50%</width>
+				<height>75</height>
+				<align>center</align>
+				<aligny>bottom</aligny>
+				<label>$VAR[SeekTimeLabelVar]</label>
+				<font>font37</font>
+				<shadowcolor>black</shadowcolor>
+				<visible>!Player.ChannelPreviewActive + String.IsEmpty(Control.GetLabel(40000))</visible>
+				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+			</control>
+			<control type="list" id="54332">
+				<itemlayout />
+				<focusedlayout />
+				<content>playlistvideo://</content>
 			</control>
 			<control type="label" id="40000">
 				<centerleft>50%</centerleft>
@@ -129,8 +161,8 @@
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="group">
-				<left>150</left>
-				<right>150</right>
+				<left>170</left>
+				<right>170</right>
 				<control type="progress">
 					<top>70</top>
 					<width>100%</width>
@@ -165,7 +197,7 @@
 					<texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub.png</texturesliderbar>
 					<textureslidernib>osd/progress/nub.png</textureslidernib>
 					<textureslidernibfocus colordiffuse="button_focus">osd/progress/nub.png</textureslidernibfocus>
-					<visible>!VideoPlayer.Content(livetv) + String.IsEmpty(Player.SeekStepSize)</visible>
+					<visible>VideoPlayer.Content(livetv) | String.IsEmpty(Player.SeekStepSize)</visible>
 					<info>Player.Progress</info>
 					<action>seek</action>
 				</control>

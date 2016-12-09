@@ -187,9 +187,10 @@
 		<value condition="Player.IsTempo">$LOCALIZE[31142]: $INFO[Player.PlaySpeed]</value>
 	</variable>
 	<variable name="SeekTimeLabelVar">
+		<value condition="Player.ChapterCount">[COLOR button_focus]$LOCALIZE[21396]: [/COLOR]$INFO[player.chapter]$INFO[player.chaptercount, / ]</value>
 		<value condition="!IsEmpty(Player.SeekNumeric)">[B]$INFO[Player.SeekNumeric(hh:mm:ss)][/B]</value>
 		<value condition="Player.Seeking">$INFO[Player.SeekTime]$INFO[Player.Duration, / ]</value>
-		<value>$INFO[Player.Time]$INFO[Player.Duration, / ]</value>
+		<value condition="MusicPlayer.HasNext">[COLOR button_focus]$LOCALIZE[209]: [/COLOR]$INFO[MusicPlayer.Offset(1).Title]$INFO[MusicPlayer.Offset(1).Artist, - ,]</value>
 	</variable>
 	<variable name="VideoOSDHelpTextVar">
 		<value condition="Control.HasFocus(87) + [Player.Rewinding | Player.Forwarding]">$LOCALIZE[31050]</value>

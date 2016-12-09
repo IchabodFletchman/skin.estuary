@@ -22,7 +22,7 @@
 			<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(fullscreeninfo) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(OSDAudioDSPSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(playerprocessinfo) | Window.IsVisible(osdcmssettings) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]</visible>
 			<animation effect="fade" time="200">VisibleChange</animation>
 			<control type="label">
-				<right>140</right>
+				<right>30</right>
 				<top>0</top>
 				<align>right</align>
 				<textoffsetx>20</textoffsetx>
@@ -194,8 +194,8 @@
 				</control>
 			</control>
 			<control type="group" id="6000">
-				<left>150</left>
-				<right>150</right>
+				<left>170</left>
+				<right>170</right>
 				<top>60</top>
 				<visible>Player.SeekEnabled</visible>
 				<control type="button" id="87">
