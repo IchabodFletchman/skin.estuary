@@ -187,6 +187,7 @@
 		<value condition="Player.IsTempo">$LOCALIZE[31142]: $INFO[Player.PlaySpeed]</value>
 	</variable>
 	<variable name="SeekTimeLabelVar">
+		<value condition="IntegerGreaterThan(Playlist.Position(video),0)">[COLOR button_focus]$LOCALIZE[559]: [/COLOR]$INFO[Playlist.Position(video)]$INFO[Playlist.Length(video), / ]</value>
 		<value condition="Player.ChapterCount">[COLOR button_focus]$LOCALIZE[21396]: [/COLOR]$INFO[player.chapter]$INFO[player.chaptercount, / ]</value>
 		<value condition="!IsEmpty(Player.SeekNumeric)">[B]$INFO[Player.SeekNumeric(hh:mm:ss)][/B]</value>
 		<value condition="Player.Seeking">$INFO[Player.SeekTime]$INFO[Player.Duration, / ]</value>

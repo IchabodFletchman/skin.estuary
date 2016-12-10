@@ -43,8 +43,8 @@
 					<aligny>center</aligny>
 					<font>font30_narrow</font>
 					<wrapmultiline>true</wrapmultiline>
-					<label>[COLOR button_focus]$LOCALIZE[21396][CR][/COLOR]$INFO[player.chapter]$INFO[player.chaptercount, / ]</label>
-					<visible>player.chaptercount</visible>
+					<label>[COLOR button_focus]$LOCALIZE[21396][CR][/COLOR]$INFO[Player.Chapter]$INFO[Player.ChapterCount, / ]</label>
+					<visible>Player.ChapterCount</visible>
 				</control>
 				<control type="group">
 					<visible>Player.Recording</visible>
@@ -74,9 +74,9 @@
 					<aligny>center</aligny>
 					<font>font30_narrow</font>
 					<wrapmultiline>true</wrapmultiline>
-					<visible>!Window.IsActive(fullscreeninfo)</visible>
+					<visible>!Window.IsActive(fullscreeninfo) + IntegerGreaterThan(Playlist.Position(video),0)</visible>
 					<animation effect="fade" time="200">VisibleChange</animation>
-					<label>$INFO[Player.Duration,[COLOR button_focus]$LOCALIZE[180][CR][/COLOR]]</label>
+					<label>[COLOR button_focus]$LOCALIZE[559][CR][/COLOR]$INFO[Playlist.Position(video)]$INFO[Playlist.Length(video), / ]</label>
 				</control>
 			</control>
 			<control type="label">
@@ -88,8 +88,6 @@
 				<label>[B]$INFO[Player.Time][/B]</label>
 				<font>font13</font>
 				<shadowcolor>black</shadowcolor>
-				<visible>!Player.ChannelPreviewActive</visible>
-				<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
 			</control>
 			<control type="label">
 				<right>0</right>
@@ -101,24 +99,8 @@
 				<label>[B]$INFO[Player.TimeRemaining,– ,][/B]</label>
 				<font>font13</font>
 				<shadowcolor>black</shadowcolor>
-				<visible>!Player.ChannelPreviewActive</visible>
-				<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
 			</control>
-			<control type="label" id="56401">
-				<centerleft>50%</centerleft>
-				<top>90</top>
-				<width>50%</width>
-				<height>75</height>
-				<align>center</align>
-				<aligny>bottom</aligny>
-				<label>[COLOR button_focus]$LOCALIZE[209]: [/COLOR]$INFO[Container(54332).ListItem(1).Label]</label>
-				<font>font45</font>
-				<shadowcolor>black</shadowcolor>
-				<visible>!Player.ChannelPreviewActive + IntegerGreaterThan(Playlist.Position(video),1)</visible>
-				<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
-				<animation delay="0" effect="slide" time="120" start="0,0" end="0,20" tween="sine" easing="inout" condition="String.IsEmpty(Control.GetLabel(40000)) + String.IsEmpty(Control.GetLabel(56403))">Conditional</animation>
-			</control>
-			<control type="label" id="56402">
+			<control type="label">
 				<centerleft>50%</centerleft>
 				<top>90</top>
 				<width>50%</width>
@@ -130,9 +112,9 @@
 				<shadowcolor>black</shadowcolor>
 				<visible>!Player.ChannelPreviewActive</visible>
 				<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
-				<animation delay="0" effect="slide" time="120" start="0,0" end="0,20" tween="sine" easing="inout" condition="String.IsEmpty(Control.GetLabel(40000)) + String.IsEmpty(Control.GetLabel(56403))">Conditional</animation>
+				<animation delay="0" effect="slide" time="120" start="0,0" end="0,16" tween="sine" easing="inout" condition="String.IsEmpty(Control.GetLabel(40000)) + String.IsEmpty(Control.GetLabel(56400))">Conditional</animation>
 			</control>
-			<control type="label" id="56403">
+			<control type="label" id="56400">
 				<centerleft>50%</centerleft>
 				<top>136</top>
 				<width>50%</width>
@@ -144,11 +126,6 @@
 				<shadowcolor>black</shadowcolor>
 				<visible>!Player.ChannelPreviewActive + String.IsEmpty(Control.GetLabel(40000))</visible>
 				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
-			</control>
-			<control type="list" id="54332">
-				<itemlayout />
-				<focusedlayout />
-				<content>playlistvideo://</content>
 			</control>
 			<control type="label" id="40000">
 				<centerleft>50%</centerleft>
