@@ -74,7 +74,7 @@
 					<aligny>center</aligny>
 					<font>font30_narrow</font>
 					<wrapmultiline>true</wrapmultiline>
-					<visible>!Window.IsActive(fullscreeninfo) + IntegerGreaterThan(Playlist.Position(video),0)</visible>
+					<visible>!Window.IsActive(fullscreeninfo) + IntegerGreaterThan(Playlist.Length(video),1)</visible>
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<label>[COLOR button_focus]$LOCALIZE[559][CR][/COLOR]$INFO[Playlist.Position(video)]$INFO[Playlist.Length(video), / ]</label>
 				</control>
