@@ -198,7 +198,7 @@
 				<ondown>650</ondown>
 				<texturesliderbar colordiffuse="00FFFFFF">osd/progress/scrubber.png</texturesliderbar>
 				<textureslidernib>osd/progress/scrubber.png</textureslidernib>
-				<textureslidernibfocus>osd/progress/scrubber.png</textureslidernibfocus>
+				<textureslidernibfocus colordiffuse="button_focus">osd/progress/scrubber.png</textureslidernibfocus>
 				<info>Player.Progress</info>
 				<visible>Player.SeekEnabled</visible>
 				<action>seek</action>
