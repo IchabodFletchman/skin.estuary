@@ -47,6 +47,13 @@
 			<linespacing>0.8</linespacing>
 		</font>
 		<font>
+			<name>font32_narrow</name>
+			<filename>NotoSans-Regular.ttf</filename>
+			<size>32</size>
+			<style>lighten</style>
+			<linespacing>0.8</linespacing>
+		</font>
+		<font>
 			<name>font37</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>37</size>
@@ -159,6 +166,12 @@
 			<name>font27</name>
 			<filename>arial.ttf</filename>
 			<size>27</size>
+		</font>
+		<font>
+			<name>font32_narrow</name>
+			<filename>arial.ttf</filename>
+			<size>32</size>
+			<linespacing>0.8</linespacing>
 		</font>
 		<font>
 			<name>font37</name>
