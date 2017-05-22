@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1108">
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<animation type="WindowOpen" reversible="false">
+		<effect type="fade" start="0" end="100" time="200" />
+		<effect type="slide" start="-25,0" end="0,0" time="200" tween="sine" easing="inout" />
+	</animation>
+	<animation type="WindowClose" reversible="false">
+		<effect type="fade" start="100" end="0" time="200" />
+		<effect type="slide" start="0,0" end="-25,0" time="200" tween="sine" easing="inout" />
+	</animation>
+	<controls>
+		<control type="button">
+			<width>100%</width>
+			<height>100%</height>
+			<texturefocus></texturefocus>
+			<texturenofocus></texturenofocus>
+			<onclick>Action(close)</onclick>
+		</control>
+		<control type="grouplist" id="9000">
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<left>320</left>
+			<width>480</width>
+			<height>110</height>
+			<top>-10</top>
+			<onleft>Action(close)</onleft>
+			<align>left</align>
+			<include content="IconButton">
+				<param name="control_id" value="803" />
+				<param name="onclick" value="Fullscreen" />
+				<param name="icon" value="icons/now-playing/fullscreen.png" />
+				<param name="label" value="$LOCALIZE[31000]" />
+				<param name="visible" value="Player.HasMedia" />
+			</include>
+			<include content="IconButton">
+				<param name="control_id" value="801" />
+				<param name="onclick" value="ActivateWindow(1107)" />
+				<param name="icon" value="icons/search.png" />
+				<param name="label" value="$LOCALIZE[137]" />
+			</include>
+			<include content="IconButton">
+				<param name="control_id" value="802" />
+				<param name="onclick" value="Action(close)" />
+				<param name="onclick_2" value="ActivateWindow(settings)" />
+				<param name="icon" value="icons/settings.png" />
+				<param name="label" value="$LOCALIZE[21417]" />
+			</include>
+			<include content="IconButton">
+				<param name="control_id" value="804" />
+				<param name="onclick" value="ActivateWindow(shutdownmenu)" />
+				<param name="icon" value="icons/power.png" />
+				<param name="label" value="$LOCALIZE[33060]" />
+			</include>
+		</control>
+	</controls>
+</window>

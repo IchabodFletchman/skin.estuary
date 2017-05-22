@@ -29,8 +29,8 @@
 	<constant name="DepthSideBlade">0.10</constant>
 	<constant name="bg_alpha">79</constant>
 	<constant name="dialogbuttons_itemgap">-20</constant>
-	<constant name="list_y_offset">0</constant>
-	<constant name="list_item_height">80</constant>
+	<constant name="list_y_offset">100</constant>
+	<constant name="list_item_height">70</constant>
 	<expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)</expression>
 	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131) | Window.IsActive(MyPlaylist.xml)</expression>
 	<include name="CommonScrollbars">
@@ -369,7 +369,7 @@
 	</include>
 	<include name="MediaFlag">
 		<param name="width">115</param>
-		<param name="height">60</param>
+		<param name="height">70</param>
 		<param name="visible">true</param>
 		<definition>
 			<control type="image">
@@ -417,7 +417,7 @@
 					<visible>!String.IsEmpty($PARAM[infolabel_prefix]ListItem.Duration)</visible>
 					<control type="label">
 						<width>115</width>
-						<height>60</height>
+						<height>70</height>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[$PARAM[infolabel_prefix]ListItem.Duration]</label>
@@ -881,8 +881,8 @@
 					<left>0</left>
 					<top>0</top>
 					<width>110%</width>
-					<height>130</height>
-					<texture>frame/InfoBar.png</texture>
+					<height>100</height>
+					<texture colordiffuse="4DFFFFFF">colors/black.png</texture>
 					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
 				</control>
 				<control type="grouplist">
@@ -1133,7 +1133,7 @@
 						<aspectratio>scale</aspectratio>
 						<fadetime>400</fadetime>
 						<animation effect="fade" time="400">VisibleChange</animation>
-						<texture background="true" colordiffuse="37FFFFFF">$VAR[MediaFanartVar]</texture>
+						<texture background="true" colordiffuse="0DFFFFFF">$VAR[MediaFanartVar]</texture>
 						<visible>!Control.IsVisible(502) | $EXP[infodialog_active]</visible>
 					</control>
 					<control type="image">
@@ -1165,8 +1165,8 @@
 					<left>0</left>
 					<bottom>0</bottom>
 					<width>110%</width>
-					<height>115</height>
-					<texture flipy="true">frame/InfoBar.png</texture>
+					<height>70</height>
+					<texture colordiffuse="4DFFFFFF">colors/black.png</texture>
 				</control>
 				<control type="group">
 					<visible>$PARAM[info_visible]</visible>
@@ -1339,8 +1339,8 @@
 		<param name="flipx">false</param>
 		<definition>
 			<control type="image">
-				<texture flipx="$PARAM[flipx]" colordiffuse="EDFFFFFF">lists/panel.png</texture>
-				<bordertexture border="21">overlays/shadow.png</bordertexture>
+				<texture flipx="$PARAM[flipx]" colordiffuse="4DFFFFFF">colors/black.png</texture>
+				<!-- <bordertexture border="21">overlays/shadow.png</bordertexture> -->
 				<bordersize>20</bordersize>
 				<width>$PARAM[width]</width>
 				<left>$PARAM[left]</left>

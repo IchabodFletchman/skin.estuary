@@ -159,7 +159,6 @@
 		<include content="TopBar">
 			<param name="breadcrumbs_label" value="$LOCALIZE[5]$INFO[Control.GetLabel(2), / ]" />
 		</include>
-		<include>BottomBar</include>
 		<control type="group">
 			<include>OpenClose_Right</include>
 			<control type="textbox" id="6">

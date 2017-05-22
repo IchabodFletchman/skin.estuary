@@ -4,7 +4,6 @@
 		<orientation>vertical</orientation>
 		<height>100%</height>
 		<scrolltime tween="cubic" easing="out">500</scrolltime>
-		<itemgap>-160</itemgap>
 		<onup>20000</onup>
 		<ondown>20001</ondown>
 		<usecontrolcoords>true</usecontrolcoords>
@@ -14,9 +13,9 @@
 		<definition>
 			<control type="label" id="$PARAM[list_id]666">
 				<left>55</left>
-				<top>80</top>
+				<top>0</top>
 				<width>900</width>
-				<height>90</height>
+				<height>40</height>
 				<label>$PARAM[label]</label>
 				<shadowcolor>text_shadow</shadowcolor>
 				<visible>$PARAM[visible]</visible>
@@ -26,7 +25,7 @@
 	</include>
 	<include name="PVRWidget">
 		<control type="image">
-			<top>80</top>
+			<top>0</top>
 			<left>16</left>
 			<width>670</width>
 			<height>225</height>
@@ -34,7 +33,7 @@
 		</control>
 		<control type="image">
 			<left>55</left>
-			<top>122</top>
+			<top>42</top>
 			<width>140</width>
 			<height>140</height>
 			<aspectratio>keep</aspectratio>
@@ -42,22 +41,20 @@
 		</control>
 		<control type="label">
 			<left>225</left>
-			<top>127</top>
+			<top>47</top>
 			<height>25</height>
 			<width>420</width>
 			<label>$PARAM[header]</label>
 			<aligny>center</aligny>
 			<font>font36_title</font>
-			<shadowcolor>black</shadowcolor>
 		</control>
 		<control type="label">
 			<left>225</left>
-			<top>172</top>
+			<top>92</top>
 			<height>105</height>
 			<width>420</width>
 			<label>$PARAM[label1][CR]$PARAM[label2]</label>
 			<font>font12</font>
-			<shadowcolor>black</shadowcolor>
 		</control>
 	</include>
 	<include name="WidgetListPoster">
@@ -72,14 +69,14 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>115</top>
+				<top>0</top>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<right>0</right>
-				<height>503</height>
+				<height>440</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<itemlayout width="310" height="486">
+				<itemlayout width="325" height="486">
 					<control type="group">
 						<left>68</left>
 						<top>10</top>
@@ -88,7 +85,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="310" height="486">
+				<focusedlayout width="325" height="486">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>68</left>
@@ -185,15 +182,15 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>105</top>
+				<top>-10</top>
 				<right>0</right>
-				<height>410</height>
+				<height>340</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="310" height="500">
+				<itemlayout width="325" height="500">
 					<control type="group">
 						<left>70</left>
 						<top>5</top>
@@ -205,7 +202,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="310" height="500">
+				<focusedlayout width="325" height="500">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
@@ -248,15 +245,15 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>120</top>
+				<top>0</top>
 				<right>0</right>
-				<height>500</height>
+				<height>420</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="310" height="500">
+				<itemlayout width="325" height="500">
 					<control type="group">
 						<left>70</left>
 						<include content="InfoWallMusicLayout">
@@ -267,7 +264,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="310" height="500">
+				<focusedlayout width="325" height="500">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
@@ -292,6 +289,109 @@
 	<include name="WidgetListCategories">
 		<param name="item_limit">20</param>
 		<param name="icon">$INFO[ListItem.Icon]</param>
+		<param name="icon_height">110</param>
+		<param name="pvr_submenu">false</param>
+		<param name="pvr_type">TV</param>
+		<param name="visible">true</param>
+		<definition>
+			<control type="panel" id="$PARAM[list_id]">
+				<left>0</left>
+				<top>0</top>
+				<right>0</right>
+				<height>160</height>
+				<include content="WidgetListCommon">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<visible>$PARAM[visible]</visible>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<itemlayout width="325" height="240">
+					<control type="group">
+						<left>70</left>
+						<control type="image">
+							<top>10</top>
+							<width>316</width>
+							<height>134</height>
+							<texture border="40">buttons/dialogbutton-nofo.png</texture>
+						</control>
+						<control type="image">
+							<centerleft>70</centerleft>
+							<centertop>76</centertop>
+							<width>110</width>
+							<height>$PARAM[icon_height]</height>
+							<texture fallback="DefaultFolder.png">$PARAM[icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="textbox">
+							<left>110</left>
+							<top>32</top>
+							<width>160</width>
+							<height>90</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font25_narrow</font>
+							<shadowcolor>text_shadow</shadowcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="325" height="240">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>70</left>
+						<animation type="Focus">
+							<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="230,50" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="230,50" />
+						</animation>
+						<control type="image">
+							<top>10</top>
+							<width>316</width>
+							<height>134</height>
+							<texture border="40">buttons/dialogbutton-nofo.png</texture>
+						</control>
+						<control type="image">
+							<top>10</top>
+							<width>316</width>
+							<height>134</height>
+							<texture border="40" colordiffuse="button_focus">buttons/dialogbutton-fo.png</texture>
+							<include>Animation_FocusTextureFade</include>
+						</control>
+						<control type="image">
+							<centertop>76</centertop>
+							<left>-30</left>
+							<width>200</width>
+							<height>$PARAM[icon_height]</height>
+							<texture fallback="DefaultFolder.png">$PARAM[icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="textbox">
+							<left>110</left>
+							<top>32</top>
+							<width>160</width>
+							<height>90</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font25_narrow</font>
+							<shadowcolor>text_shadow</shadowcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+						</control>
+					</control>
+				</focusedlayout>
+				<include condition="!$PARAM[pvr_submenu]" content="SubmenuContent">
+					<param name="widget_target" value="$PARAM[widget_target]"/>
+					<param name="item_limit" value="$PARAM[item_limit]"/>
+					<param name="content_path" value="$PARAM[content_path]"/>
+				</include>
+				<include condition="$PARAM[pvr_submenu]" content="PVRSubMenuContent">
+					<param name="pvr_type" value="$PARAM[pvr_type]"/>
+				</include>
+			</control>
+		</definition>
+	</include>
+	<include name="WidgetListSources">
+		<param name="item_limit">20</param>
+		<param name="icon">$INFO[ListItem.Icon]</param>
 		<param name="icon_height">120</param>
 		<param name="pvr_submenu">false</param>
 		<param name="pvr_type">TV</param>
@@ -308,15 +408,15 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>110</top>
+				<top>0</top>
 				<right>0</right>
-				<height>290</height>
+				<height>240</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="310" height="340">
+				<itemlayout width="325" height="340">
 					<control type="group">
 						<left>70</left>
 						<control type="image">
@@ -347,7 +447,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="310" height="340">
+				<focusedlayout width="325" height="340">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
@@ -456,14 +556,14 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>120</top>
+				<top>0</top>
 				<right>0</right>
-				<height>430</height>
+				<height>380</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="310" height="500">
+				<itemlayout width="325" height="500">
 					<control type="group">
 						<left>70</left>
 						<control type="image">
@@ -512,7 +612,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="310" height="500">
+				<focusedlayout width="325" height="500">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
@@ -582,7 +682,7 @@
 		</definition>
 	</include>
 	<include name="WeatherWidget">
-		<param name="width">266</param>
+		<param name="width">280</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
@@ -591,9 +691,9 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>90</top>
+				<top>-20</top>
 				<right>0</right>
-				<height>396</height>
+				<height>330</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -924,8 +1024,8 @@
 	<include name="WidgetScrollbar">
 		<control type="group">
 			<right>0</right>
-			<top>80</top>
-			<bottom>80</bottom>
+			<top>0</top>
+			<bottom>0</bottom>
 			<width>60</width>
 			<control type="scrollbar" id="$PARAM[scrollbar_id]">
 				<right>0</right>

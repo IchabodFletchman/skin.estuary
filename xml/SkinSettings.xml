@@ -88,7 +88,8 @@
 					<label>$LOCALIZE[31156]</label>
 					<label2>$VAR[BackgroundOverlayTypeVar]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick condition="String.IsEqual(Skin.String(background_overlay),7)">Skin.SetString(background_overlay,0)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(background_overlay),8)">Skin.SetString(background_overlay,0)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(background_overlay),7)">Skin.SetString(background_overlay,8)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(background_overlay),6)">Skin.SetString(background_overlay,7)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(background_overlay),5)">Skin.SetString(background_overlay,6)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(background_overlay),4)">Skin.SetString(background_overlay,5)</onclick>
@@ -335,7 +336,6 @@
 		<include content="TopBar">
 			<param name="breadcrumbs_label" value="$LOCALIZE[5] / $LOCALIZE[20077]" />
 		</include>
-		<include>BottomBar</include>
 		<control type="textbox" id="6">
 			<include>OpenClose_Right</include>
 			<description>description area</description>
