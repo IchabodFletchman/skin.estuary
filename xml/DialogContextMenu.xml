@@ -5,7 +5,7 @@
 	<coordinates>
 		<left>0</left>
 		<top>0</top>
-		<origin x="50%" y="400">Window.IsActive(Home)</origin>
+		<origin x="50%" y="250">true</origin>
 	</coordinates>
 	<controls>
 		<control type="image">
@@ -15,7 +15,7 @@
 			<height>3240</height>
 			<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-			<texture colordiffuse="B0FFFFFF">colors/black.png</texture>
+			<texture colordiffuse="BFFFFFFF">colors/black.png</texture>
 		</control>
 		<control type="button">
 			<left>-1920</left>
@@ -27,14 +27,25 @@
 			<onclick>Action(close)</onclick>
 		</control>
 		<control type="group">
-			<animation effect="slide" end="-225" time="0" condition="Window.IsActive(home)">conditional</animation>
+			<left>-225</left>
+			<control type="textbox">
+				<left>-275</left>
+				<top>-120</top>
+				<width>1000</width>
+				<height>120</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font30_title</font>
+				<label>$VAR[ContextMenuTitleVar]</label>
+				<textcolor>white</textcolor>
+			</control>
 			<control type="image" id="999">
 				<description>background image</description>
-				<left>0</left>
-				<top>0</top>
-				<width>450</width>
-				<height>780</height>
-				<texture colordiffuse="dialog_tint">colors/white.png</texture>
+				<left>-20</left>
+				<top>-20</top>
+				<width>490</width>
+				<height>820</height>
+				<texture border="40" colordiffuse="dialog_tint">dialogs/dialog.png</texture>
 			</control>
 			<control type="grouplist" id="996">
 				<description>grouplist for context buttons</description>
@@ -58,7 +69,7 @@
 			<width>450</width>
 			<height>65</height>
 			<align>center</align>
-			<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+			<texturefocus border="20" colordiffuse="button_focus">buttons/focus.png</texturefocus>
 			<texturenofocus />
 		</control>
 	</controls>

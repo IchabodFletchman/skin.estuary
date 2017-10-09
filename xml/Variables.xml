@@ -426,4 +426,12 @@
 		<value condition="String.IsEqual(Skin.String(background_overlay),0)">$LOCALIZE[231]</value>
 		<value>$INFO[Skin.String(background_overlay),$LOCALIZE[467] ]</value>
 	</variable>
+	<variable name="ContextMenuTitleVar">
+		<value condition="String.IsEqual(ListItem.DbType,season)">$INFO[ListItem.TVShowtitle,,[CR]][COLOR=grey]$INFO[ListItem.Title][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.DbType,episode)">$INFO[ListItem.TVShowtitle,,[CR]][COLOR=grey]$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E, - ]$INFO[ListItem.Title][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.DbType,album)">$INFO[ListItem.Artist,,[CR]][COLOR=grey]$INFO[ListItem.Label][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.DbType,song)">$INFO[ListItem.Artist,,[CR]][COLOR=grey]$INFO[ListItem.Title][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.DbType,musicvideo)">$INFO[ListItem.Artist,,[CR]][COLOR=grey]$INFO[ListItem.Title][/COLOR]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
 </includes>
