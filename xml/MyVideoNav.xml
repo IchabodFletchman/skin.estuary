@@ -30,12 +30,22 @@
 				<visible>Control.IsVisible(50) | Control.Isvisible(54) | [Control.IsVisible(501) + String.IsEqual(Skin.AspectRatio,21:9)]</visible>
 				<include>Visible_Left</include>
 				<include content="ContentPanel">
+					<param name="top" value="80" />
 					<param name="width" value="656" />
 				</include>
-				<control type="group">
+				<control type="grouplist">
 					<width>550</width>
+					<height>100%</height>
+					<orientation>vertical</orientation>
+					<left>30</left>
+					<top>120</top>
+					<!-- <height>70</height> -->
+					<align>left</align>
+					<itemgap>5</itemgap>
+					<!-- <width>1900</width> -->
+
 					<control type="textbox">
-						<top>120</top>
+						<!-- <top>120</top> -->
 						<left>30</left>
 						<width>550</width>
 						<aligny>center</aligny>
@@ -43,11 +53,15 @@
 						<font>font36_title</font>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
+					<include>BasicMediaFlags</include>
 					<control type="textbox">
 						<left>30</left>
-						<top>240</top>
+						<!-- <top>240</top> -->
 						<width>525</width>
-						<bottom>100</bottom>
+						<height>400</height>
+						<!-- <bottom>100</bottom> -->
+						<font>font27</font>
+						<textcolor>BFFFFFFF</textcolor>
 						<visible>!ListItem.IsCollection</visible>
 						<label>$INFO[ListItem.Tagline,[I],[/I][CR][CR]]$INFO[ListItem.Plot][CR][CR]</label>
 						<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -77,20 +91,28 @@
 						</include>
 					</control>
 				</control>
+				<control type="group">
+					<depth>DepthBars</depth>
+					<bottom>0</bottom>
+					<height>55</height>
+					<visible>!Window.IsActive(extendedprogressdialog)</visible>
+					<visible>!ListItem.IsCollection</visible>
+					<include>DetailedMediaFlags</include>
+				</control>
 			</control>
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="$VAR[BreadcrumbsVideoVar]" />
 			</include>
-			<include content="BottomBar">
+			<!-- <include content="BottomBar">
 				<param name="info_visible" value="true" />
-			</include>
+			</include> -->
 			<control type="group">
 				<depth>DepthBars</depth>
 				<bottom>0</bottom>
 				<height>70</height>
 				<animation effect="fade" start="0" end="100" time="300" delay="300">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<include condition="!Skin.HasSetting(hide_mediaflags)">MediaFlags</include>
+				<!-- <include condition="!Skin.HasSetting(hide_mediaflags)">MediaFlags</include> -->
 			</control>
 			<include>CommonScrollbars</include>
 			<include>MediaMenuMouseOverlay</include>
