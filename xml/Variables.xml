@@ -151,14 +151,14 @@
 		<value condition="!ListItem.IsParentFolder">OverlayUnwatched.png</value>
 	</variable>
 	<variable name="ResolutionFlagVar">
-		<value condition="ListItem.IsStereoscopic">flags/videoresolution/3D.png</value>
-		<value condition="Integer.IsGreater(ListItem.VideoResolution,1080)">flags/videoresolution/4K.png</value>
-		<value>$INFO[ListItem.VideoResolution,flags/videoresolution/,.png]</value>
+		<value condition="ListItem.IsStereoscopic">3D</value>
+		<value condition="IntegerGreaterThan($PARAM[infolabel_prefix]ListItem.VideoResolution,1080)">4K</value>
+		<value>$INFO[ListItem.VideoResolution]</value>
 	</variable>
 	<variable name="ContainerResolutionFlagVar">
-		<value condition="Container.ListItem.IsStereoscopic">flags/videoresolution/3D.png</value>
-		<value condition="Integer.IsGreater(Container.ListItem.VideoResolution,1080)">flags/videoresolution/4K.png</value>
-		<value>$INFO[Container.ListItem.VideoResolution,flags/videoresolution/,.png]</value>
+		<value condition="Container.ListItem.IsStereoscopic">3D</value>
+		<value condition="Integer.IsGreater(Container.ListItem.VideoResolution,1080)">4K</value>
+		<value>$INFO[Container.ListItem.VideoResolution]</value>
 	</variable>
 	<variable name="BannerVar">
 		<value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>

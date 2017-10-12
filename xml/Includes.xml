@@ -351,14 +351,14 @@
 			<width>180</width>
 			<visible>$PARAM[visible]</visible>
 			<control type="image">
-				<top>-3</top>
+				<top>1</top>
 				<left>0</left>
-				<width>40</width>
-				<height>40</height>
+				<width>32</width>
+				<height>32</height>
 				<texture colordiffuse="white">$PARAM[icon]</texture>
 			</control>
 			<control type="label">
-				<left>50</left>
+				<left>45</left>
 				<width>180</width>
 				<height>35</height>
 				<aligny>center</aligny>
@@ -369,7 +369,7 @@
 	</include>
 	<include name="MediaFlag">
 		<param name="width">115</param>
-		<param name="height">60</param>
+		<param name="height">50</param>
 		<param name="visible">true</param>
 		<definition>
 			<control type="image">
@@ -386,62 +386,141 @@
 		<param name="infolabel_prefix"></param>
 		<param name="resolution_var">$VAR[ResolutionFlagVar]</param>
 		<definition>
+			<control type="grouplist" description="Flags">
+				<right>18</right>
+				<bottom>8</bottom>
+				<width>1000</width>
+				<height>45</height>
+				<itemgap>12</itemgap>
+				<orientation>horizontal</orientation>
+				<align>right</align>
+				<control type="button">
+					<visible>!IsEmpty($PARAM[infolabel_prefix]ListItem.VideoResolution)</visible>
+					<height>36</height>
+					<width>102</width>
+					<posx>0</posx>
+					<posy>0</posy>
+					<font>font13</font>
+					<align>center</align>
+					<aligny>bottom</aligny>
+					<textoffsetx>0</textoffsetx>
+					<textoffsety>-4</textoffsety>
+					<colordiffuse>grey</colordiffuse>
+					<textcolor>grey</textcolor>
+					<texturenofocus>badges/video/ResFrame.png</texturenofocus>
+					<texturefocus>badges/video/ResFrame.png</texturefocus>
+					<label>$PARAM[resolution_var]</label>
+				</control>
+				<control type="image">
+					<visible>!IsEmpty($PARAM[infolabel_prefix]ListItem.VideoCodec)</visible>
+					<height>36</height>
+					<width>102</width>
+					<aspectratio>keep</aspectratio>
+					<colordiffuse>grey</colordiffuse>
+					<texture>$INFO[$PARAM[infolabel_prefix]ListItem.VideoCodec,badges/video/,.png]</texture>
+				</control>
+				<control type="image">
+					<visible>!IsEmpty($PARAM[infolabel_prefix]ListItem.AudioChannels)</visible>
+					<height>36</height>
+					<width>102</width>
+					<aspectratio>keep</aspectratio>
+					<colordiffuse>grey</colordiffuse>
+					<texture>$INFO[$PARAM[infolabel_prefix]ListItem.AudioChannels,badges/channels,.png]</texture>
+				</control>
+				<control type="image">
+					<visible>!IsEmpty($PARAM[infolabel_prefix]ListItem.AudioCodec)</visible>
+					<height>36</height>
+					<width>102</width>
+					<aspectratio>keep</aspectratio>
+					<colordiffuse>grey</colordiffuse>
+					<texture>$INFO[$PARAM[infolabel_prefix]ListItem.AudioCodec,badges/audio/,.png]</texture>
+				</control>
+				<control type="button">
+					<visible>!IsEmpty($PARAM[infolabel_prefix]ListItem.VideoAspect)</visible>
+					<height>36</height>
+					<width>102</width>
+					<posx>0</posx>
+					<posy>0</posy>
+					<font>font13</font>
+					<align>center</align>
+					<aligny>bottom</aligny>
+					<textoffsetx>0</textoffsetx>
+					<textoffsety>-4</textoffsety>
+					<colordiffuse>grey</colordiffuse>
+					<textcolor>grey</textcolor>
+					<texturenofocus>badges/video/FlagFrame.png</texturenofocus>
+					<texturefocus>badges/video/FlagFrame.png</texturefocus>
+					<label>$INFO[$PARAM[infolabel_prefix]ListItem.VideoAspect]</label>
+				</control>
+			</control>
+		</definition>
+	</include>
+	<include name="BasicMediaFlags">
+		<param name="top">220</param>
+		<param name="left">30</param>
+		<param name="width">540</param>
+		<definition>
 			<control type="grouplist">
 				<orientation>horizontal</orientation>
-				<right>20</right>
-				<top>0</top>
-				<height>70</height>
-				<align>right</align>
+				<top>$PARAM[top]</top>
+				<left>$PARAM[left]</left>
+				<height>80</height>
+				<align>left</align>
 				<itemgap>28</itemgap>
-				<width>1900</width>
+				<width>$PARAM[width]</width>
 				<usecontrolcoords>true</usecontrolcoords>
 				<control type="group">
+					<top>10</top>
 					<width>150</width>
-					<top>-5</top>
-					<visible>String.IsEqual($PARAM[infolabel_prefix]ListItem.DBtype,tvshow)</visible>
-					<include content="MediaFlag">
-						<param name="texture" value="$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.white/,.png]" />
+					<visible>!String.IsEmpty(ListItem.Rating)</visible>
+					<include content="InfoFlag">
+						<param name="visible" value="true" />
+						<param name="icon" value="lists/rating.png" />
+						<param name="label" value="$INFO[$PARAM[infolabel_prefix]ListItem.Rating]" />
 					</include>
 				</control>
 				<control type="group">
 					<top>10</top>
-					<width>200</width>
+					<width>150</width>
+					<visible>!String.IsEmpty(ListItem.Year)</visible>
+					<visible>!String.IsEqual(ListItem.DBtype,episode)</visible>
+					<visible>!String.IsEqual(ListItem.DBtype,season)</visible>
 					<include content="InfoFlag">
-						<param name="visible" value="[String.IsEqual($PARAM[infolabel_prefix]ListItem.DBtype,tvshow) | String.IsEqual($PARAM[infolabel_prefix]ListItem.DBtype,episode)] + !String.IsEmpty($PARAM[infolabel_prefix]ListItem.Premiered)" />
+						<param name="visible" value="true" />
+						<param name="icon" value="lists/year.png" />
+						<param name="label" value="$INFO[$PARAM[infolabel_prefix]ListItem.Year]" />
+					</include>
+				</control>
+				<control type="group">
+					<top>10</top>
+					<width>180</width>
+					<visible>!String.IsEmpty(ListItem.Premiered)</visible>
+					<visible>String.IsEqual(ListItem.DBtype,episode) | String.IsEqual(ListItem.DBtype,season)</visible>
+					<include content="InfoFlag">
+						<param name="visible" value="true" />
 						<param name="icon" value="lists/year.png" />
 						<param name="label" value="$INFO[$PARAM[infolabel_prefix]ListItem.Premiered]" />
 					</include>
 				</control>
 				<control type="group">
-					<width>115</width>
-					<visible>!String.IsEmpty($PARAM[infolabel_prefix]ListItem.Duration)</visible>
-					<control type="label">
-						<width>115</width>
-						<height>60</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[$PARAM[infolabel_prefix]ListItem.Duration]</label>
-						<font>font_flag</font>
-					</control>
+					<width>150</width>
+					<top>2</top>
+					<visible>String.IsEqual(ListItem.DBtype,tvshow)</visible>
+					<visible>System.HasAddon(resource.images.studios.white)</visible>
 					<include content="MediaFlag">
-						<param name="texture" value="flags/flag.png" />
+						<param name="texture" value="$INFO[ListItem.Studio,resource://resource.images.studios.white/,.png]" />
 					</include>
 				</control>
-				<include content="MediaFlag">
-					<param name="texture" value="$INFO[$PARAM[infolabel_prefix]ListItem.AudioChannels,flags/audiochannel/,.png]" />
-					<param name="visible" value="!String.IsEmpty($PARAM[infolabel_prefix]ListItem.AudioChannels)" />
-				</include>
-				<include content="MediaFlag">
-					<param name="texture" value="$INFO[$PARAM[infolabel_prefix]ListItem.AudioCodec,flags/audiocodec/,.png]" />
-					<param name="visible" value="!String.IsEmpty($PARAM[infolabel_prefix]ListItem.AudioCodec)" />
-				</include>
-				<!-- 			<include content="MediaFlag">
-																														<param name="texture" value="$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]" />
-																													</include> -->
-				<include content="MediaFlag">
-					<param name="texture" value="$PARAM[resolution_var]" />
-					<param name="visible" value="!String.IsEmpty($PARAM[infolabel_prefix]ListItem.VideoResolution)" />
-				</include>
+				<control type="group">
+					<top>10</top>
+					<width>150</width>
+					<visible>!String.IsEmpty(ListItem.Duration)</visible>
+					<include content="InfoFlag">
+						<param name="visible" value="true" />
+						<param name="icon" value="lists/duration.png" />
+						<param name="label" value="$INFO[$PARAM[infolabel_prefix]ListItem.Duration]" />
+					</include>
+				</control>
 			</control>
 		</definition>
 	</include>
